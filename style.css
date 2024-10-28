@@ -168,7 +168,7 @@ video {
   mix-blend-mode: overlay;
 }
 
-.texto-inicio {
+.logo-slide {
   top: 50px;
   max-width: 650px;
   width: calc(100% - 100px);
@@ -203,12 +203,12 @@ video {
 }
 
 /* Vineyards */
-#excursiones {
+#vineyards {
   background-color: #28261d;
   /* background-color: var(--second-bg-color); */
 }
 
-#excursiones h2 {
+#vineyards h2 {
   font-size: 5rem;
   color: #f5f6fc;
   margin-top: 8rem;
@@ -218,7 +218,7 @@ h8 {
   font-size: 1.5rem;
 }
 
-.contenedor-excursiones {
+.contenedor-vineyards {
   margin: 0 20%;
   display: flex;
   flex-wrap: wrap;
@@ -270,13 +270,13 @@ h8 {
 }
 
 
-/* alojamientos */
+/* delicatessen */
 
-#alojamientos {
+#delicatessen {
   background: var(--second-bg-color);
 }
 
-#alojamientos h2 {
+#delicatessen h2 {
   font-size: 5rem;
 }
 
@@ -622,11 +622,11 @@ footer a i {
     color: var(--text-color);
   }
 
-  .contenedor-excursiones {
+  .contenedor-vineyards {
     margin: 0 10%;
   }
 
-  #excursiones h2 {
+  #vineyards h2 {
     margin-bottom: 3rem;
     margin-top: 10rem;
   }
@@ -690,11 +690,11 @@ footer a i {
 
 @media screen and (max-width: 768px) {
 
-  .texto-inicio {
+  .logo-slide {
     margin: 0 10%;
   }
 
-  .texto-inicio h1 {
+  .logo-slide h1 {
     font-size: 4rem;
   }
 
@@ -718,11 +718,11 @@ footer a i {
     width: 90%;
   }
 
-  #excursiones h2 {
+  #vineyards h2 {
     margin-bottom: 2rem;
   }
 
-  .contenedor-excursiones {
+  .contenedor-vineyards {
     margin: 0 10%;
   }
 
@@ -755,15 +755,15 @@ footer a i {
     display: none;
   }
 
-  .texto-inicio {
+  .logo-slide {
     margin: 0 5%;
   }
 
-  .texto-inicio h1 {
+  .logo-slide h1 {
     font-size: 3rem;
   }
 
-  .texto-inicio p {
+  .logo-slide p {
     font-size: 1.5rem;
   }
 
@@ -844,11 +844,11 @@ footer a i {
 
 @media screen and (max-width: 380px) {
 
-  .texto-inicio h1 {
+  .logo-slide h1 {
     margin-top: 5rem;
   }
 
-  .texto-inicio p {
+  .logo-slide p {
     font-size: 1.4rem;
   }
 
