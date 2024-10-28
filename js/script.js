@@ -120,7 +120,7 @@ function validarFormulario(e) {
 
 function enviarMail(templateParams) {
     const formspreeURL = "https://formspree.io/f/xrbgerdd"; 
-    
+
     // Enviar la solicitud usando fetch()
     fetch(formspreeURL, {
         method: "POST",
@@ -133,7 +133,7 @@ function enviarMail(templateParams) {
         if (response.ok) {
             console.log('ENVIADO...');
             document.getElementById("formulario").reset();
-            alert("El correo electrónico fue enviado");
+            alert("Hemos recibido su contacto, muy pronto nos comunicaremos con usted.");
         } else {
             alert("El correo electrónico no fue enviado");
         }
