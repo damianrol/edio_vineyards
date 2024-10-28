@@ -99,23 +99,52 @@ function validarFormulario(e) {
 
 
 
+// function enviarMail(templateParams) {
+//     const PUBLIC_KEY = 'vzXI7eKkzUIcK3Qfd';
+//     const contact_service = 'service_t5bk7vh';
+//     const contact_form = 'template_um8gjrn';
+//     emailjs.init(PUBLIC_KEY);
+//     emailjs.send(contact_service, contact_form, templateParams)
+//         .then(function () {
+//             console.log('ENVIADO...');
+//             document.getElementById("formulario").reset();
+//             return alert("El correo electronico fue enviado");
+
+
+//         }
+//             , function (error) {
+//                 return alert("El correo electronico no fue enviado");
+//             });
+// }
+
+
 function enviarMail(templateParams) {
-    const PUBLIC_KEY = 'vzXI7eKkzUIcK3Qfd';
-    const contact_service = 'service_t5bk7vh';
-    const contact_form = 'template_um8gjrn';
-    emailjs.init(PUBLIC_KEY);
-    emailjs.send(contact_service, contact_form, templateParams)
-        .then(function () {
+    const formspreeURL = "https://formspree.io/f/xrbgerdd"; 
+    
+    // Enviar la solicitud usando fetch()
+    fetch(formspreeURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(templateParams)
+    })
+    .then(function (response) {
+        if (response.ok) {
             console.log('ENVIADO...');
             document.getElementById("formulario").reset();
-            return alert("El correo electronico fue enviado");
-
-
+            alert("El correo electrónico fue enviado");
+        } else {
+            alert("El correo electrónico no fue enviado");
         }
-            , function (error) {
-                return alert("El correo electronico no fue enviado");
-            });
+    })
+    .catch(function (error) {
+        console.error("Error:", error);
+        alert("El correo electrónico no fue enviado");
+    });
 }
+
+
 
 // Menu Hamburguesa
 const nav = document.querySelector('#nav');
