@@ -78,12 +78,68 @@ header {
   background: var(--second-bg-color);
 }
 
-/* Futuro Carrito de compras */
+
+/* ------------------------------------------------------------ */
+/* Carrito de compras */
+/* ------------------------------------------------------------ */
+
 header a i {
   color: var(--second-bg-color);
   vertical-align: -.3rem;
   font-size: 3rem;
 }
+
+#carrito {
+  display: none; /* Ocultar inicialmente */
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+#carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+#carrito ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+}
+
+#carrito p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #353227; 
+}
+
+#carrito .btn {
+  background-color: var(--skin-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#carrito .btn:hover {
+  background-color: var(--second-bg-color);
+  color: var(--skin-color);
+}
+
+
+
+
+/* ------------------------------------------------------------ */
+/* Logo */
+/* ------------------------------------------------------------ */
 
 .logo {
   font-size: 3rem;
@@ -280,6 +336,59 @@ h8 {
   transform: scale(1.1);
   transition: transform .5s;
 }
+
+
+
+.carta {
+  position: relative; /* Define un contexto de posicionamiento */
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  overflow: hidden; /* Evita desbordes */
+  display: flex; /* Flexbox para centrar verticalmente */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.carta img {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1; /* La imagen queda en el fondo */
+  margin-bottom: 10px; /* Espacio entre imagen y texto */
+}
+
+.carta h6, 
+.carta p{
+  position: relative;
+  z-index: 2; /* Asegura que el texto esté sobre la imagen */
+  margin: 40px; /* Espacio entre los textos */
+  color: var(--bg-color); /* Color oscuro para visibilidad */
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra del texto */
+}
+
+.carta button {
+  position: relative; /* Mantén el botón en su posición natural */
+  z-index: 2; /* Eleva el botón por encima de la imagen */
+  margin-top: 30px; /* Espacio entre la imagen y el botón */
+  padding: 8px 16px;
+  font-size: 2.5rem;
+  transition: 0.3s;
+  color: var(--skin-color);
+  background: var(--bg-color);
+  border-radius: 50%;
+  padding: 0.8rem;
+}
+
+.carta button:hover {
+  background: var(--skin-color);
+  color: var(--second-bg-color);
+}
+
 
 
 /* ------------------------------------------------------------ */
@@ -874,3 +983,9 @@ footer a i {
   }
 
 }
+
+
+
+
+
+
