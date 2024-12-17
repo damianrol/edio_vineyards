@@ -13,11 +13,17 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+
+                // Seleccionar el enlace y verificar si existe
+                const linkActivo = document.querySelector('header nav a[href*=' + id + ']');
+                if (linkActivo) {
+                    linkActivo.classList.add('active');
+                }
             });
-        };
+        }
     });
 };
+
 
 //Fondo Scroll Navbar
 
@@ -161,7 +167,7 @@ cerrar.addEventListener('click', () => {
 
 
 //Carrusel
-const cantcabanias = document.querySelector('.contenedor-alojamiento').children.length;
+const cantcabanias = document.querySelector('.contenedor-delicatessen').children.length;
 //declaración de vectores
 const carouselImages = [];
 const carouselButtons = [];
@@ -216,19 +222,127 @@ for (let nrocabania = 0; nrocabania < cantcabanias; nrocabania++) {
 
 }
 
-//API Clima
-let KEY = "c81204ea80c1b3e98945d4d1fcab18ab"
-let url = 'https://api.openweathermap.org/data/2.5/weather?lat=-32.95&lon=-69.18333&appid=' + KEY + '&units=metric&lang=es'
-
-fetch(url)
-    .then(Response => Response.json())
-    .then(data => mostrartiempo(data))
-    .catch(error => console.log("Error", error))
-let tiempo = "";
-
-const mostrartiempo = (data) => {
-    tiempo = '<h4>Temperatura en Mendoza: </h4> <a>' + data.main.temp + ' °C</a>'
 
 
-    document.getElementById("tiempo").innerHTML = tiempo;
+
+
+// Carrito
+// Array de productos
+const productos = [
+    { id: 1, nombre: "Edio Tasting", precio: 200000, imagen: "./imagenes/edio-tasting.jpg" },
+    { id: 2, nombre: "Wine Pairing", precio: 250000, imagen: "./imagenes/wine_food_pairing.jpg" },
+    { id: 3, nombre: "Commisioner Tour", precio: 300000, imagen: "./imagenes/commisioner-tour.jpg" },
+    { id: 4, nombre: "Henrietta Stich", precio: 180000, imagen: "./imagenes/henrietta_stich_cider.jpg" },
+    { id: 5, nombre: "Joan Apple Bakery", precio: 150000, imagen: "./imagenes/joan_apple_bakery.jpeg" },
+    { id: 6, nombre: "Vineyards", precio: 220000, imagen: "./imagenes/edio_vineyards.jpg" }
+];
+
+// Carrito de compras
+let carrito = [];
+
+// Función para mostrar los productos en la sección Vineyards
+function mostrarProductos() {
+    console.log("Cargando productos...");
+    const contenedorVineyards = document.querySelector(".contenedor-vineyards");
+
+    if (!contenedorVineyards) {
+        console.error("El contenedor .contenedor-vineyards no existe en el HTML.");
+        return;
+    }
+
+    console.log("Contenedor encontrado. Cargando productos...");
+
+    contenedorVineyards.innerHTML = "";
+
+    productos.forEach(producto => {
+        console.log(`Producto: ${producto.nombre}, Precio: ${producto.precio}`);
+        const productoHTML = `
+            <div class="carta">
+                <div class="cara frente">
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <h6>${producto.nombre}</h6>
+                    <p>$ ${producto.precio}</p>
+                    <button class="bx bx-cart-alt" onclick="agregarAlCarrito(${producto.id})"></button>
+                </div>
+            </div>
+        `;
+        contenedorVineyards.insertAdjacentHTML("beforeend", productoHTML);
+    });
 }
+
+
+
+// Función para agregar productos al carrito
+function agregarAlCarrito(id) {
+    const producto = productos.find(item => item.id === id);
+    carrito.push(producto);
+    actualizarCarrito();
+}
+
+// Función para actualizar la sección del carrito
+function actualizarCarrito() {
+    const carritoHTML = document.querySelector("#lista-carrito");
+    const totalHTML = document.querySelector("#total-carrito");
+    const contadorCarrito = document.querySelector("#contador-carrito");
+    const seccionCarrito = document.querySelector("#carrito"); // Sección carrito
+
+    carritoHTML.innerHTML = ""; // Limpiar el carrito visual
+    let total = 0;
+
+    // Generar la lista de productos
+    carrito.forEach((producto, index) => {
+        total += producto.precio;
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            ${producto.nombre} - $${producto.precio}
+            <button class="btn" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+        `;
+        carritoHTML.appendChild(li);
+    });
+
+    // Mostrar total
+    totalHTML.textContent = `Total a Pagar: $ ${total}`;
+
+    // Mostrar/ocultar la sección del carrito
+    if (carrito.length > 0) {
+        seccionCarrito.style.display = "block";
+        contadorCarrito.style.display = "block";
+        contadorCarrito.textContent = carrito.length;
+    } else {
+        seccionCarrito.style.display = "none";
+        contadorCarrito.style.display = "none";
+    }
+}
+
+
+
+
+// Función para eliminar productos del carrito
+function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+}
+
+// Evento para borrar todo el carrito
+document.querySelector("#boton-borrar").addEventListener("click", () => {
+    carrito = [];
+    actualizarCarrito();
+});
+
+// Evento para "Ir a Pagar"
+document.querySelector("#boton-pagar").addEventListener("click", () => {
+    alert(`Gracias por su compra. Total a pagar: $ ${carrito.reduce((acc, p) => acc + p.precio, 0)}`);
+    carrito = [];
+    actualizarCarrito();
+});
+
+// Mostrar los productos al cargar la página
+mostrarProductos();
+
+
+
+
+
+
+
