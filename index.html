@@ -25,15 +25,27 @@
             <a href="#"><img id="scrollImage" src="./imagenes/logo_ngo.png" alt="Logo adicional" width="40px"></a>
         </div>
 
-        <!-- API TIEMPO
-        <div class="tiempo" id="tiempo">
-        </div> -->
 
         <!-- Menu -->
         <div class="menu">
 
-            <!-- Futuro Carrito de compras -->
-            <a href="#compras" class="btn"><i class='bx bx-cart-alt'></i></a>
+            <!-- Carrito de compras -->
+            <!-- <a href="#compras" class="btn"><i class='bx bx-cart-alt'></i></a> -->
+            <a href="#carrito" class="btn" style="position: relative;">
+                <i class='bx bx-cart-alt'></i>
+                <!-- Contador de productos -->
+                <span id="contador-carrito" style="
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    background-color: #353227;
+                    color: white;
+                    font-size: 12px;
+                    border-radius: 50%;
+                    padding: 2px 6px;
+                    display: none;">0</span>
+            </a>
+
 
             <!-- Nav -->
             <nav id="nav">
@@ -75,10 +87,10 @@
 
         <!-- Sección Texto de Intro -->
         <section id="intro">
-            
+
             </div class="contenedor-intro">
-                <h2 class="h0">Propiedad y gestión familiar desde hace más de 60 años.</h2>
-                <p class="p1">A lo largo de los años, nos ha encantado compartir productos cultivados directamente en
+            <h2 class="h0">Propiedad y gestión familiar desde hace más de 60 años.</h2>
+            <p class="p1">A lo largo de los años, nos ha encantado compartir productos cultivados directamente en
                 nuestra granja y nos esforzamos por hacerlo durante muchos años más.</p>
             <div>
 
@@ -86,89 +98,15 @@
 
         <!-- Sección Vineyards -->
         <section id="vineyards">
-
             <!-- Titulo -->
             <h2>Vineyards</h2><br><br><br>
 
-            <!-- Contenedor de todas las vineyards -->
+            <!-- Contenedor donde se cargarán los productos dinámicamente -->
             <div class="contenedor-vineyards">
-
-                <!-- vino #1 -->
-                <div class="carta">
-
-                    <!-- Imagen y titulo vino 1 -->
-
-                    <div class="cara frente">
-                        <img src="./imagenes/edio-tasting.jpg" alt="">
-                        <h8>Edio Tasting</h8>
-                    </div>
-
-                </div>
-
-                <!-- vino #2 -->
-                <div class="carta">
-
-                    <!-- Imagen y titulo vino 2 -->
-
-                    <div class="cara frente">
-                        <img src="./imagenes/wine_food_pairing.jpg" alt="">
-                        <h8>Wine & Food Pairing</h8>
-                    </div>
-
-                </div>
-
-                <!-- vino #3 -->
-                <div class="carta">
-
-                    <!-- Imagen y titulo vino 3 -->
-
-                    <div class="cara frente">
-                        <img src="./imagenes/commisioner-tour.jpg" alt="">
-                        <h8>Commisioner Tour</h8>
-                    </div>
-
-
-                </div>
-
-                <!-- vino #4 -->
-                <div class="carta">
-
-                    <!-- Imagen y titulo vino 4 -->
-
-                    <div class="cara frente">
-                        <img src="./imagenes/henrietta_stich_cider.jpg" alt="">
-                        <h8>Henrietta Stich</h8>
-                    </div>
-
-                </div>
-
-                <!-- vino #5 -->
-                <div class="carta">
-
-                    <!-- Imagen y titulo vino 5 -->
-
-                    <div class="cara frente">
-                        <img src="./imagenes/joan_apple_bakery.jpeg" alt="">
-                        <h8>Joan Apple Bakery</h8>
-                    </div>
-
-                </div>
-
-                <!-- vino #6 -->
-                <div class="carta">
-
-                    <!-- Imagen y titulo vino 6 -->
-
-                    <div class="cara frente">
-                        <img src="./imagenes/edio_vineyards.jpg" alt="">
-                        <h8>Vineyards</h8>
-                    </div>
-
-                </div>
-
+                <!-- Los productos se generarán desde el JS -->
             </div>
-
         </section>
+
 
 
 
@@ -221,6 +159,7 @@
                                 famoso Walkin' Pie. <br> <br>
                                 Para más información visite nuestras redes:
                             </p>
+
 
                             <!-- Redes Sociales -->
                             <div class="redes-sociales">
@@ -332,6 +271,31 @@
             </div>
 
         </section>
+
+        <!-- Carrito de compras -->
+        <section id="carrito" class="contenedor-carrito">
+            <div class="row">
+                <h2>Mis Compras</h2>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul id="lista-carrito">
+                        <!-- Aquí se cargarán los productos dinámicamente -->
+                    </ul>
+                    <p id="total-carrito" class="p1">Total a Pagar: $0</p>
+                    <input id="boton-borrar" type="button" value="Borrar" class="btn">
+                    <input id="boton-pagar" type="button" value="Ir a Pagar" class="btn">
+                    <p id="mensajeCarrito" class="p1"></p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
 
         <!-- Footer -->
         <footer>
